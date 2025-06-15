@@ -1,0 +1,12 @@
+# ignore the Python virtual environment
+.venv/
+
+# ignore Jupyter checkpoints
+**/.ipynb_checkpoints/
+
+# ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# macOS Finder files
+.DS_Store
