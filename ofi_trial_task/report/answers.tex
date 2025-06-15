@@ -1,0 +1,23 @@
+\documentclass\[11pt]{article}
+\usepackage\[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage\[hidelinks]{hyperref}
+
+\title{Task 1: Conceptual Answers -- Order Flow Imbalance}
+\author{\[Your Name]}
+\date{June 15, 2025}
+
+\begin{document}
+
+\maketitle
+
+\section\*{1. Motivation for Multi-Level OFI}
+Measuring Order Flow Imbalance (OFI) at multiple depth levels of the order book captures comprehensive supply–demand dynamics beyond the top-of-book liquidity. While best-level OFI (level 1) reflects immediate changes at the National Best Bid and Offer, deeper levels encode latent liquidity and the resilience of the book. Large submissions or cancellations at levels 2–10 influence queue positions and foreshadow price pressure. Aggregating information from multiple depths thus yields a richer predictor that empirically explains a larger fraction of contemporaneous price variance than best-level OFI alone.
+
+\section\*{2. Use of Lasso Instead of OLS for Cross-Impact Estimation}
+Estimating cross-impact involves regressing an asset’s return on order flow imbalances from many other assets, leading to a high-dimensional design matrix with potential multicollinearity and more predictors than observations. Ordinary least squares (OLS) in this scenario produces unstable estimates and overfits the data, harming out-of-sample performance. The Least Absolute Shrinkage and Selection Operator (Lasso) introduces an \$\ell\_1\$ penalty that shrinks less informative coefficients to zero, enforcing sparsity. This regularization reduces model variance, selects only the most relevant cross-asset effects, and yields more robust and interpretable cross-impact estimates.
+
+\section\*{3. Why OFI Outperforms Trade Volume in Predicting Short-Term Returns}
+Trade volume measures only the total executed quantity and ignores underlying order book dynamics such as limit order submissions, cancellations, and queue priorities. In contrast, OFI quantifies the net change in liquidity on the bid and ask sides, directly reflecting supply–demand imbalances that drive price movements. Empirical evidence shows that OFI has a stronger and more stable correlation with short-term returns, explaining a larger share of return variance than raw volume. By incorporating both aggressive (marketable) and passive (limit) order activity, OFI provides a timely and accurate signal of price pressure that trade volume alone cannot capture.
+
+\end{document}
